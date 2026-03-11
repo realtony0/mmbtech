@@ -88,7 +88,7 @@ export function Contact() {
         </p>
         <div className="flex flex-col gap-4">
           {[
-            { icon: "✉", label: "contact@mmbtech.sn", href: "mailto:contact@mmbtech.sn" },
+            { icon: "✉", label: "contact@mmb-tech.com", href: "mailto:contact@mmb-tech.com" },
             { icon: "📞", label: "+221 77 499 27 42", href: "tel:+221774992742" },
             { icon: "📍", label: "Dakar, Sénégal", href: "#" },
           ].map((c) => (

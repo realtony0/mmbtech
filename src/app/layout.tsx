@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: "MMBTECH — Agence Digitale Dakar",
     description: "Sites web · Apps mobiles · Boutiques en ligne — Dakar, Sénégal",
     type: "website",
-    url: "https://mmbtech.sn",
+    url: "https://mmb-tech.com",
     siteName: "MMBTECH",
   },
   twitter: {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "MMBTECH — Agence Digitale Dakar",
     description: "Sites web · Apps mobiles · Boutiques en ligne — Dakar, Sénégal",
   },
-  metadataBase: new URL("https://mmbtech.sn"),
+  metadataBase: new URL("https://mmb-tech.com"),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

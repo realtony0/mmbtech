@@ -55,14 +55,6 @@ export function Hero() {
       </span>
 
       <div className="relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-3 md:px-4 py-2 border border-black/[0.09] rounded-full font-mono text-[10px] md:text-xs tracking-[1.5px] uppercase text-muted bg-white/70 mb-6 md:mb-8"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-blue animate-pulse2" />
-          Agence disponible — Dakar
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.4 }}
           className="font-sans font-extrabold leading-[0.92] tracking-[-2px] md:tracking-[-4px] mb-8 md:mb-12"
