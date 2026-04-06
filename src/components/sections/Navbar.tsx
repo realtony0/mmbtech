@@ -17,7 +17,7 @@ export function Navbar() {
     <>
       <nav className="fixed top-0 inset-x-0 z-[200] h-16 md:h-[72px] flex items-center justify-between px-5 md:px-14 bg-cream/92 backdrop-blur-xl border-b border-black/[0.06]">
         <Link href="/" className="font-mono text-[15px] font-bold tracking-[2px] text-ink">
-          MMB<span className="text-blue">TECH</span>
+          Am <span className="text-blue">Web Agency</span>
         </Link>
 
         <ul className="hidden md:flex gap-10">

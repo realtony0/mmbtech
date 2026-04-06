@@ -149,8 +149,8 @@ export function Footer() {
 
   return (
     <footer className="px-5 md:px-14 py-8 md:py-10 border-t border-black/[0.09] flex flex-col md:flex-row items-center justify-between gap-4 md:gap-5">
-      <span className="font-mono text-sm font-bold tracking-[2px]">MMB<span className="text-blue">TECH</span></span>
-      <span className="text-xs text-muted">© {new Date().getFullYear()} Mmbtech. Tous droits réservés.</span>
+      <span className="font-mono text-sm font-bold tracking-[2px]">Am <span className="text-blue">Web Agency</span></span>
+      <span className="text-xs text-muted">© {new Date().getFullYear()} Am Web Agency. Tous droits réservés.</span>
       <div className="flex items-center gap-5">
         {socials.map((s) => (
           <Link key={s.label} href={s.href} target="_blank" rel="noreferrer" aria-label={s.label} className="text-muted hover:text-blue transition-colors">

@@ -51,7 +51,7 @@ export function Hero() {
 
       <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(100px,20vw,320px)] font-extrabold text-transparent pointer-events-none z-0 font-sans whitespace-nowrap select-none"
         style={{ WebkitTextStroke: "1px rgba(10,10,15,0.04)" }}>
-        MMBTECH
+        AM WEB AGENCY
       </span>
 
       <div className="relative z-10">

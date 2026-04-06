@@ -69,8 +69,8 @@ export const services = [
 export const pricing = [
   {
     name: "Essentiel",
-    price: "135 000",
-    unit: "FCFA",
+    price: "200",
+    unit: "€",
     desc: "Idéal pour les petites entreprises qui lancent leur présence en ligne.",
     features: ["Site internet (5 pages max)", "Design sur mesure", "Lisible sur téléphone & tablette", "Formulaire de contact", "1 mois d'accompagnement"],
     cta: "Démarrer",
@@ -78,8 +78,8 @@ export const pricing = [
   },
   {
     name: "Business",
-    price: "180 000",
-    unit: "FCFA",
+    price: "275",
+    unit: "€",
     desc: "Pour les entreprises qui veulent vendre et gérer leur activité en ligne.",
     features: ["Site complet et personnalisé", "Boutique en ligne + paiements", "Espace de gestion privé", "Paiement mobile & carte bancaire", "Visible sur Google", "3 mois d'accompagnement"],
     cta: "Démarrer",
@@ -87,8 +87,8 @@ export const pricing = [
   },
   {
     name: "Application",
-    price: "750K — 2M",
-    unit: "FCFA",
+    price: "1 000 — 3 000",
+    unit: "€",
     desc: "Votre application mobile sur iPhone et Android, prête à être téléchargée.",
     features: ["Application iPhone & Android", "Hébergement inclus", "Comptes utilisateurs", "Notifications sur téléphone", "Publiée sur App Store & Play Store", "6 mois d'accompagnement"],
     cta: "Nous contacter",
