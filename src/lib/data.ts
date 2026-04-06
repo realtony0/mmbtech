@@ -69,7 +69,7 @@ export const services = [
 export const pricing = [
   {
     name: "Essentiel",
-    price: "200",
+    price: "250 — 300",
     unit: "€",
     desc: "Idéal pour les petites entreprises qui lancent leur présence en ligne.",
     features: ["Site internet (5 pages max)", "Design sur mesure", "Lisible sur téléphone & tablette", "Formulaire de contact", "1 mois d'accompagnement"],
@@ -78,7 +78,7 @@ export const pricing = [
   },
   {
     name: "Business",
-    price: "275",
+    price: "350 — 400",
     unit: "€",
     desc: "Pour les entreprises qui veulent vendre et gérer leur activité en ligne.",
     features: ["Site complet et personnalisé", "Boutique en ligne + paiements", "Espace de gestion privé", "Paiement mobile & carte bancaire", "Visible sur Google", "3 mois d'accompagnement"],

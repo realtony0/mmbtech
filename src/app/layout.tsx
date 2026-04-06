@@ -117,7 +117,7 @@ const jsonLd = {
         latitude: 14.6928,
         longitude: -17.4467,
       },
-      priceRange: "200 EUR - 3000 EUR",
+      priceRange: "250 EUR - 3000 EUR",
       openingHoursSpecification: {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -141,7 +141,7 @@ const jsonLd = {
       provider: { "@id": "https://mmb-tech.com/#organization" },
       description: "Sites internet professionnels, modernes et responsives pour entreprises à Dakar et au Sénégal.",
       areaServed: { "@type": "Country", name: "Sénégal" },
-      offers: { "@type": "Offer", priceCurrency: "EUR", price: "200", description: "À partir de 200 €" },
+      offers: { "@type": "Offer", priceCurrency: "EUR", price: "250", description: "À partir de 250 €" },
     },
     {
       "@type": "Service",
@@ -159,7 +159,7 @@ const jsonLd = {
       provider: { "@id": "https://mmb-tech.com/#organization" },
       description: "Boutiques en ligne avec paiement mobile et carte bancaire, livrées clé en main.",
       areaServed: { "@type": "Country", name: "Sénégal" },
-      offers: { "@type": "Offer", priceCurrency: "EUR", price: "275", description: "À partir de 275 €" },
+      offers: { "@type": "Offer", priceCurrency: "EUR", price: "350", description: "À partir de 350 €" },
     },
   ],
 };
