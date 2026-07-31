@@ -27,8 +27,8 @@ export function Pricing() {
             transition={{ delay: i * 0.08 }}
             className={`relative rounded-2xl p-7 md:p-11 border transition-all hover:-translate-y-1 ${
               p.featured
-                ? "bg-blue border-blue text-white hover:shadow-[0_24px_48px_rgba(0,71,255,.3)]"
-                : "bg-cream border-black/[0.09] hover:border-blue hover:shadow-[0_24px_48px_rgba(0,71,255,.09)]"
+                ? "bg-accent-gradient border-blue text-white hover:shadow-[0_24px_48px_rgba(91,76,255,.35)]"
+                : "bg-cream border-black/[0.09] hover:border-blue hover:shadow-[0_24px_48px_rgba(91,76,255,.09)]"
             }`}
           >
             {p.featured && (
@@ -131,7 +131,7 @@ export function Contact() {
             <label className="block font-mono text-[10px] tracking-[2.5px] uppercase text-muted mb-2">Votre message</label>
             <textarea name="message" placeholder="Décrivez votre projet..." rows={4} required className="w-full bg-transparent border-none outline-none text-sm text-ink placeholder:text-muted/50 resize-none" />
           </div>
-          <button type="submit" className="py-4 md:py-5 px-9 bg-blue text-white border border-black/[0.09] border-t-0 font-sans text-sm font-bold hover:bg-ink transition-colors -mt-px">
+          <button type="submit" className="py-4 md:py-5 px-9 bg-accent-gradient text-white border border-black/[0.09] border-t-0 font-sans text-sm font-bold hover:opacity-90 transition-all -mt-px shadow-[0_4px_16px_rgba(91,76,255,.2)]">
             Envoyer sur WhatsApp →
           </button>
         </form>

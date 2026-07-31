@@ -37,7 +37,7 @@ export function Process() {
             whileInView="show"
             viewport={{ once: true }}
             transition={{ delay: i * 0.08 }}
-            className="group relative rounded-2xl border border-black/[0.09] bg-cream p-6 md:p-8 hover:border-blue hover:shadow-[0_24px_48px_rgba(0,71,255,.09)] transition-all hover:-translate-y-1"
+            className="group relative rounded-2xl border border-black/[0.09] bg-cream p-6 md:p-8 hover:border-blue hover:shadow-[0_24px_48px_rgba(91,76,255,.12)] transition-all hover:-translate-y-1"
           >
             <div className="font-mono text-[11px] tracking-[3px] text-blue mb-4 md:mb-5">{s.num}</div>
             <h3 className="font-sans font-bold text-[18px] md:text-[20px] mb-2 md:mb-3 text-ink">{s.title}</h3>

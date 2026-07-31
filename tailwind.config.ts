@@ -9,13 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        cream: "#F7F3EC",
-        "cream-dark": "#EDE7D9",
+        cream: "#F4F4F8",
+        "cream-dark": "#E8E8EF",
         ink: "#0A0A0F",
-        blue: "#0047FF",
-        "blue-light": "#3D6FFF",
-        "blue-pale": "#EEF2FF",
-        muted: "#8A8A99",
+        blue: "#5B4CFF",
+        "blue-light": "#7B6FFF",
+        "blue-pale": "#EEEDFF",
+        muted: "#7C7C8A",
       },
       fontFamily: {
         sans: ["var(--font-bricolage)", "sans-serif"],

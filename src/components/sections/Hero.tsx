@@ -33,9 +33,9 @@ export function Hero() {
         if (l.x < -l.len) l.x = canvas.width + l.len;
         if (l.y < 0 || l.y > canvas.height) l.vy *= -1;
         const g = ctx.createLinearGradient(l.x, l.y, l.x + l.len, l.y);
-        g.addColorStop(0, "rgba(0,71,255,0)");
-        g.addColorStop(0.5, `rgba(0,71,255,${l.a})`);
-        g.addColorStop(1, "rgba(0,71,255,0)");
+        g.addColorStop(0, "rgba(91,76,255,0)");
+        g.addColorStop(0.5, `rgba(91,76,255,${l.a})`);
+        g.addColorStop(1, "rgba(91,76,255,0)");
         ctx.beginPath(); ctx.moveTo(l.x, l.y); ctx.lineTo(l.x + l.len, l.y);
         ctx.strokeStyle = g; ctx.lineWidth = l.w; ctx.stroke();
       });
@@ -46,22 +46,22 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center md:justify-end px-5 md:px-14 pb-12 md:pb-20 pt-24 md:pt-[100px] overflow-hidden bg-cream">
+    <section className="relative min-h-screen flex flex-col justify-center md:justify-end px-5 md:px-14 pb-12 md:pb-20 pt-24 md:pt-[100px] overflow-hidden bg-ink">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-0 pointer-events-none" />
 
       <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[clamp(100px,20vw,320px)] font-extrabold text-transparent pointer-events-none z-0 font-sans whitespace-nowrap select-none"
-        style={{ WebkitTextStroke: "1px rgba(10,10,15,0.04)" }}>
+        style={{ WebkitTextStroke: "1px rgba(255,255,255,0.04)" }}>
         AM WEB AGENCY
       </span>
 
       <div className="relative z-10">
         <motion.h1
           initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.4 }}
-          className="font-sans font-extrabold leading-[0.92] tracking-[-2px] md:tracking-[-4px] mb-8 md:mb-12"
+          className="font-sans font-extrabold leading-[0.92] tracking-[-2px] md:tracking-[-4px] mb-8 md:mb-12 text-white"
           style={{ fontSize: "clamp(48px,9.5vw,148px)" }}
         >
           <span className="block">Nous</span>
-          <span className="block text-outline">construisons</span>
+          <span className="block" style={{ color: "transparent", WebkitTextStroke: "2px rgba(255,255,255,0.3)" }}>construisons</span>
           <span className="block font-serif font-normal italic text-blue" style={{ WebkitTextStroke: "0" }}>votre</span>
           <span className="block">digital.</span>
         </motion.h1>
@@ -70,15 +70,15 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.7 }}
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10"
         >
-          <p className="max-w-md text-sm md:text-base leading-[1.75] text-muted font-light">
+          <p className="max-w-md text-sm md:text-base leading-[1.75] text-white/50 font-light">
             Sites web, apps mobiles et e-commerce pour les marques ambitieuses.
             Basés à Dakar, nous livrons partout.
           </p>
           <div className="flex items-center gap-4 md:gap-6 shrink-0">
-            <Link href="#portfolio" className="px-6 md:px-9 py-3 md:py-4 bg-blue text-white text-sm font-semibold rounded-full hover:bg-ink transition-all hover:-translate-y-0.5">
+            <Link href="#portfolio" className="px-6 md:px-9 py-3 md:py-4 bg-accent-gradient text-white text-sm font-semibold rounded-full hover:opacity-90 transition-all hover:-translate-y-0.5 shadow-[0_4px_24px_rgba(91,76,255,.4)]">
               Nos projets
             </Link>
-            <Link href="#contact" className="text-sm text-muted hover:text-blue transition-colors">
+            <Link href="#contact" className="text-sm text-white/50 hover:text-blue transition-colors">
               Contact →
             </Link>
           </div>
@@ -87,7 +87,7 @@ export function Hero() {
 
       <div className="absolute right-5 md:right-14 bottom-12 md:bottom-20 hidden md:flex flex-col items-center gap-2.5 z-10">
         <div className="w-px h-12 bg-gradient-to-b from-blue to-transparent" />
-        <span className="font-mono text-[10px] tracking-[3px] uppercase text-muted [writing-mode:vertical-rl]">Défiler</span>
+        <span className="font-mono text-[10px] tracking-[3px] uppercase text-white/30 [writing-mode:vertical-rl]">Défiler</span>
       </div>
     </section>
   );

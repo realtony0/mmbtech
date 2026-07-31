@@ -91,7 +91,7 @@ export function Portfolio() {
                 </h3>
                 <p className="text-sm md:text-[15px] leading-[1.8] text-muted font-light mb-6">{p.desc}</p>
                 <Link href={p.url} target="_blank" rel="noreferrer"
-                  className="inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 bg-blue text-white rounded-full text-[13px] font-semibold hover:bg-ink transition-all hover:-translate-y-0.5">
+                  className="inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 bg-accent-gradient text-white rounded-full text-[13px] font-semibold hover:opacity-90 transition-all hover:-translate-y-0.5 shadow-[0_4px_16px_rgba(91,76,255,.25)]">
                   Visiter le site ↗
                 </Link>
               </div>

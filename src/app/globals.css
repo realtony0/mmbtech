@@ -5,7 +5,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: #F7F3EC;
+  background: #F4F4F8;
   color: #0A0A0F;
   overflow-x: hidden;
 }
@@ -39,3 +39,14 @@ html.lenis { height: auto; }
     -webkit-text-stroke: 1.5px #0A0A0F;
   }
 }
+
+/* Gradient accent */
+.bg-accent-gradient {
+  background: linear-gradient(135deg, #5B4CFF 0%, #8B5CF6 100%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F4F4F8; }
+::-webkit-scrollbar-thumb { background: #C4C4D0; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #5B4CFF; }

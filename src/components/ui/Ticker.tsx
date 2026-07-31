@@ -3,7 +3,7 @@ const items = ["SITES WEB","APPS MOBILES","BOUTIQUES EN LIGNE","DESIGN","IDENTIT
 export function Ticker() {
   const doubled = [...items, ...items];
   return (
-    <div className="overflow-hidden bg-blue py-3.5">
+    <div className="overflow-hidden bg-accent-gradient py-3.5">
       <div className="flex gap-14 animate-ticker whitespace-nowrap">
         {doubled.map((item, i) => (
           <span key={i} className="font-mono text-xs tracking-[3px] text-white/88 shrink-0">
