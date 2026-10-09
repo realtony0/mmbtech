@@ -3,11 +3,16 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { navLinks, contact, whatsappLink } from "@/lib/data";
 import { Clock } from "@/components/ui/Clock";
+import { lockScroll } from "@/components/ui/SmoothScroll";
 
 const ease = [0.76, 0, 0.24, 1] as const;
 
 export function Header() {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    lockScroll(open);
+  }, [open]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
