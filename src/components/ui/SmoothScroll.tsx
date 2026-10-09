@@ -19,6 +19,7 @@ export function lockScroll(locked: boolean) {
 export function scrollToHash(hash: string) {
   const el = document.querySelector(hash) as HTMLElement | null;
   if (!el) return;
+  lockScroll(false);
   if (lenis) lenis.scrollTo(el, { offset: hash === "#top" ? 0 : -72, duration: 1.6 });
   else el.scrollIntoView({ behavior: "smooth" });
 }
