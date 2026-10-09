@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /promo.html
-
-Sitemap: https://mmb-tech.com/sitemap.xml

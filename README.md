@@ -1,77 +1,43 @@
-# MMBTECH — Site Vitrine
+# MMBTECH — Site du studio
 
-Stack : **Next.js 14** · **Framer Motion** · **React Three Fiber** · **Tailwind CSS** · **TypeScript** · **Lenis**
+Site immersif du studio digital MMBTECH (Dakar).
+Stack : **Next.js 14** · **TypeScript** · **Tailwind CSS** · **Framer Motion** · **Lenis** · **WebGL (shader maison, sans librairie 3D)**
 
 ## Lancer en local
 
 ```bash
-# 1. Installer les dépendances
 npm install
-
-# 2. Lancer le serveur de dev
-npm run dev
-
-# 3. Ouvrir http://localhost:3000
+npm run dev        # http://localhost:3000
+npm run build      # build de production
 ```
 
-## Déployer sur Vercel
+Déploiement : Vercel (branche principale). Variable optionnelle : `NEXT_PUBLIC_GA_ID` pour Google Analytics.
 
-```bash
-# Connecte ton repo GitHub à Vercel
-# OU directement depuis la CLI :
-npx vercel --prod
-```
+## Concept
 
-## Structure du projet
+Une plongée : le haut de la page est la surface (0 m), on descend vers les profondeurs (-100 m) en scrollant.
+La jauge de profondeur à droite, le fond animé (eau / glace, réagit à la souris et au scroll) et les textes « fondus » portent l'identité.
+Dans le hero, dessiner un zéro à la souris déclenche une petite surprise.
+
+## Structure
 
 ```
 src/
 ├── app/
-│   ├── layout.tsx       # Fonts, metadata, SmoothScroll
-│   ├── page.tsx         # Assemblage des sections
-│   └── globals.css      # Tailwind + styles globaux
+│   ├── layout.tsx            # Polices, SEO, JSON-LD, fond WebGL, curseur
+│   ├── page.tsx              # Assemblage des sections
+│   ├── opengraph-image.tsx   # Image de partage (PNG généré)
+│   ├── mentions-legales/     # Page mentions légales
+│   ├── robots.ts / sitemap.ts
+│   └── globals.css
 ├── components/
-│   ├── ui/
-│   │   ├── Cursor.tsx       # Curseur custom animé
-│   │   ├── SmoothScroll.tsx # Lenis smooth scroll
-│   │   ├── Ticker.tsx       # Bande défilante bleue
-│   │   └── SectionLabel.tsx # Label section réutilisable
-│   ├── sections/
-│   │   ├── Navbar.tsx       # Nav fixe + toggle FR/EN
-│   │   ├── Hero.tsx         # Hero + canvas lignes bleues
-│   │   ├── About.tsx        # À propos + compteurs animés
-│   │   ├── Immersive.tsx    # Section 3D Three.js
-│   │   ├── Services.tsx     # Liste services avec hover
-│   │   ├── Portfolio.tsx    # Projets en mockups device
-│   │   └── Sections.tsx     # Testi / Pricing / Contact / Footer
-│   └── 3d/
-│       └── MockupSite.tsx   # Contenu simulé avec scroll CSS
-└── lib/
-    ├── data.ts          # Projets, services, temoignages, pricing
-    └── utils.ts         # cn() helper
+│   ├── gl/Ocean.tsx          # Shader plein écran (caustiques, ripple souris, profondeur)
+│   ├── ui/                   # Preloader, Cursor (+ dessin), DepthRuler, MeltFilters, Reveal, SmoothScroll…
+│   └── sections/             # Header, Hero, Manifesto, Services, Work, ProjectIndex, Method, Pricing, Contact, Footer
+└── lib/data.ts               # ← Projets, services, tarifs, contacts : tout le contenu est ici
 ```
 
-## Personnaliser
+## Ajouter un projet
 
-- **Projets** → `src/lib/data.ts` : modifier les URLs, descriptions, stack
-- **Couleurs** → `tailwind.config.ts` : `blue`, `cream`, `ink`...
-- **Contenu portfolio** → `src/components/3d/MockupSite.tsx`
-- **Contact email** → `src/components/sections/Sections.tsx`
-
-## Activer les vraies iframes (optionnel)
-
-Ajouter dans le `next.config.ts` de chaque site client :
-
-```ts
-async headers() {
-  return [{
-    source: "/(.*)",
-    headers: [
-      { key: "Content-Security-Policy", value: "frame-ancestors 'self' https://mmbtech.sn" },
-      { key: "X-Frame-Options", value: "ALLOWALL" },
-    ],
-  }];
-}
-```
-
-Puis remplacer `<MockupSite>` par `<iframe src={project.url} />` dans `Portfolio.tsx`.
+1. Mettre deux captures dans `public/projects/` : `<id>.webp` (1440×900) et `<id>-m.webp` (mobile, 390 px de large).
+2. Ajouter l'entrée dans `projects` (`src/lib/data.ts`). `featured: true` le place dans la galerie horizontale, sinon il apparaît dans l'index.

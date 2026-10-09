@@ -1,28 +1,36 @@
-import type { Metadata } from "next";
-import { Bricolage_Grotesque, Space_Mono, DM_Serif_Display } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Chakra_Petch, JetBrains_Mono, Manrope } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/ui/SmoothScroll";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { Ocean } from "@/components/gl/Ocean";
+import { Cursor } from "@/components/ui/Cursor";
+import { MeltFilters } from "@/components/ui/MeltFilters";
 import Script from "next/script";
 
-const bricolage = Bricolage_Grotesque({
+const display = Chakra_Petch({
   subsets: ["latin"],
-  variable: "--font-bricolage",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-display",
+  weight: ["500", "600", "700"],
 });
 
-const spaceMono = Space_Mono({
+const mono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-space-mono",
-  weight: ["400", "700"],
+  variable: "--font-mono",
+  weight: ["400", "500"],
 });
 
-const dmSerif = DM_Serif_Display({
+const sans = Manrope({
   subsets: ["latin"],
-  variable: "--font-dm-serif",
-  weight: "400",
-  style: ["normal", "italic"],
+  variable: "--font-sans",
+  weight: ["400", "500", "600"],
 });
+
+export const viewport: Viewport = {
+  themeColor: "#03181A",
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mmb-tech.com"),
@@ -57,13 +65,11 @@ export const metadata: Metadata = {
     url: "https://mmb-tech.com",
     siteName: "MMBTECH",
     locale: "fr_SN",
-    images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: "MMBTECH — Agence Digitale Dakar" }],
-  },
+      },
   twitter: {
     card: "summary_large_image",
     title: "MMBTECH — Agence Digitale Dakar",
     description: "Sites web · Apps mobiles · Boutiques en ligne — Dakar, Sénégal",
-    images: ["/og-image.svg"],
   },
   robots: {
     index: true,
@@ -103,7 +109,7 @@ const jsonLd = {
       "@type": "LocalBusiness",
       "@id": "https://mmb-tech.com/#localbusiness",
       name: "MMBTECH",
-      image: "https://mmb-tech.com/og-image.svg",
+      image: "https://mmb-tech.com/opengraph-image",
       url: "https://mmb-tech.com",
       telephone: "+221774992742",
       email: "contact@mmb-tech.com",
@@ -124,7 +130,6 @@ const jsonLd = {
         opens: "09:00",
         closes: "18:00",
       },
-      aggregateRating: undefined,
     },
     {
       "@type": "WebSite",
@@ -166,20 +171,23 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${bricolage.variable} ${spaceMono.variable} ${dmSerif.variable}`}>
+    <html lang="fr" className={`${display.variable} ${mono.variable} ${sans.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
+      <body className="font-sans">
+        <MeltFilters />
+        <Ocean />
         <SmoothScroll>
           {children}
           <WhatsAppButton />
         </SmoothScroll>
+        <Cursor />
 
-        {/* Google Analytics — replace G-XXXXXXXXXX with your real ID */}
+        {/* Google Analytics — set NEXT_PUBLIC_GA_ID to enable */}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`} strategy="afterInteractive" />
