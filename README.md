@@ -11,7 +11,26 @@ npm run dev        # http://localhost:3000
 npm run build      # build de production
 ```
 
-Déploiement : Vercel (branche principale). Variable optionnelle : `NEXT_PUBLIC_GA_ID` pour Google Analytics.
+## Déployer sur Cloudflare Pages
+
+Le site est un export statique (`npm run build` → dossier `out/`).
+
+**Option A — depuis le tableau de bord (recommandé, redéploie à chaque push)**
+Cloudflare → Workers & Pages → Create → Pages → *Connect to Git* → choisir `realtony0/mmbtech`, puis :
+- Framework preset : `Next.js (Static HTML Export)`
+- Build command : `npm run build`
+- Build output directory : `out`
+- Variable d'environnement : `NODE_VERSION` = `20`
+
+Ensuite *Custom domains* → ajouter `mmb-tech.com`.
+
+**Option B — en ligne de commande**
+```bash
+npm run build
+npx wrangler pages deploy out --project-name mmbtech
+```
+
+Variable optionnelle : `NEXT_PUBLIC_GA_ID` pour Google Analytics. Les en-têtes HTTP sont dans `public/_headers`.
 
 ## Concept
 

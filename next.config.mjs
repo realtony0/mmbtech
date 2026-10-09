@@ -1,18 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: { formats: ["image/avif", "image/webp"] },
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          { key: "Content-Security-Policy", value: "frame-ancestors 'self' https://mmb-tech.com https://www.mmb-tech.com" },
-          { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-        ],
-      },
-    ];
-  },
+  // Static export: `npm run build` writes the whole site to `out/`, ready for Cloudflare Pages.
+  // Security headers live in public/_headers (Cloudflare Pages format).
+  output: "export",
+  images: { unoptimized: true },
 };
 
 export default nextConfig;
