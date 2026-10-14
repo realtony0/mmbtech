@@ -3,72 +3,70 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
-  background: #03181a;
+  scroll-behavior: smooth;
+  background: #ffffff;
 }
 
 body {
-  color: #e4f7f0;
-  overflow-x: hidden;
+  background: #ffffff;
+  color: #0b1533;
   -webkit-font-smoothing: antialiased;
-}
-
-::selection {
-  background: #e4f7f0;
-  color: #03181a;
-}
-
-/* Hide the native cursor only when the custom one is running (fine pointers) */
-html.has-cursor,
-html.has-cursor * {
-  cursor: none !important;
-}
-
-/* Lenis */
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-.lenis.lenis-stopped {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 section[id] {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 72px;
 }
 
-/* Melted, eroded display type (filters defined in <MeltFilters />) */
-.melt {
-  filter: url(#melt);
+h1,
+h2,
+h3 {
+  text-wrap: balance;
 }
-@media (max-width: 767px) {
-  .melt {
-    filter: url(#melt-sm);
+
+/* Yellow marker highlight behind a word */
+.mark {
+  background: linear-gradient(transparent 58%, #ffd43b 58%, #ffd43b 92%, transparent 92%);
+  padding: 0 0.08em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-4 text-[15px] font-bold transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue active:scale-[.98];
+}
+.btn-wa {
+  @apply btn bg-wa text-white shadow-[0_12px_30px_-12px_rgba(31,175,85,.8)] hover:bg-wa-dark;
+}
+.btn-blue {
+  @apply btn bg-blue text-white shadow-pop hover:bg-blue-deep;
+}
+.btn-ghost {
+  @apply btn border-2 border-line bg-white text-ink hover:border-ink;
+}
+
+.eyebrow {
+  @apply text-[13px] font-bold uppercase tracking-[0.12em] text-blue;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
   }
 }
-
-.label {
-  @apply font-mono text-[11px] uppercase tracking-[0.18em];
-}
-
-.glass {
-  background: rgba(3, 24, 26, 0.38);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-  border: 1px solid rgba(228, 247, 240, 0.12);
+.marquee {
+  animation: marquee 40s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee {
+    animation: none;
   }
 }

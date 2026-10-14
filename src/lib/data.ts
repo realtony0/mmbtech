@@ -6,7 +6,9 @@ export const contact = {
   linkedin: "https://linkedin.com/company/mmbtech",
 };
 
-export const whatsappLink = (text = "Bonjour MMBTECH, je souhaite discuter d'un projet.") =>
+export const defaultMessage = "Bonjour MMBTECH, je souhaite recevoir un devis pour mon projet.";
+
+export const whatsappLink = (text = defaultMessage) =>
   `https://wa.me/${contact.phoneRaw}?text=${encodeURIComponent(text)}`;
 
 export type Project = {
@@ -138,11 +140,29 @@ export const services = [
 ];
 
 export const steps = [
-  { depth: -100, title: "Échange", desc: "On écoute votre projet, vos objectifs, votre marché. Devis gratuit sous 24h." },
-  { depth: -75, title: "Maquette", desc: "On dessine chaque écran. Vous validez le design avant la moindre ligne de code." },
-  { depth: -50, title: "Création", desc: "On développe. Vous suivez l'avancement et testez au fur et à mesure." },
-  { depth: -25, title: "Tests", desc: "Téléphones, tablettes, ordinateurs, paiements : tout est vérifié avant la mise en ligne." },
-  { depth: 0, title: "Surface", desc: "Votre projet est en ligne. On reste à vos côtés avec un accompagnement dédié." },
+  { title: "Vous nous écrivez", desc: "Sur WhatsApp ou via le formulaire. On parle de votre activité et de vos objectifs." },
+  { title: "Devis gratuit sous 24h", desc: "Un prix clair, ce qui est inclus, et un planning. Paiement fractionné possible." },
+  { title: "On crée, vous validez", desc: "Vous voyez le design avant le développement et suivez l'avancement." },
+  { title: "Votre site est en ligne", desc: "Mise en ligne, prise en main, et accompagnement après le lancement." },
+];
+
+export const benefits = [
+  {
+    title: "Trouvé sur Google",
+    desc: "Vos clients cherchent « traiteur Dakar » ou « boutique en ligne Sénégal ». Votre site apparaît, pas celui du concurrent.",
+  },
+  {
+    title: "Des ventes même la nuit",
+    desc: "Catalogue, panier, paiement mobile ou carte : vos clients commandent quand ils veulent, vous recevez la commande.",
+  },
+  {
+    title: "Une image qui inspire confiance",
+    desc: "Un site professionnel rassure avant le premier message. Vos prix et vos photos parlent pour vous.",
+  },
+  {
+    title: "WhatsApp au centre",
+    desc: "Chaque page mène à une conversation WhatsApp. Le client arrive chez vous avec sa demande déjà écrite.",
+  },
 ];
 
 export const pricing = [
@@ -150,32 +170,55 @@ export const pricing = [
     name: "Essentiel",
     price: "135 000",
     unit: "FCFA",
-    desc: "Pour lancer votre présence en ligne.",
-    features: ["Site jusqu'à 5 pages", "Design sur mesure", "Adapté mobile & tablette", "Formulaire & WhatsApp", "1 mois d'accompagnement"],
+    tagline: "Pour être visible et rassurer vos clients",
+    features: ["Site jusqu'à 5 pages", "Design sur mesure", "Adapté téléphone & tablette", "Bouton WhatsApp & formulaire", "1 mois d'accompagnement"],
     featured: false,
   },
   {
     name: "Business",
     price: "180 000",
     unit: "FCFA",
-    desc: "Pour vendre et gérer votre activité en ligne.",
-    features: ["Site complet sur mesure", "Boutique en ligne", "Paiement mobile & carte", "Espace de gestion privé", "Visible sur Google", "3 mois d'accompagnement"],
+    tagline: "Pour vendre en ligne et gérer vos commandes",
+    features: ["Site complet sur mesure", "Boutique en ligne", "Paiement mobile & carte bancaire", "Espace de gestion privé", "Visible sur Google", "3 mois d'accompagnement"],
     featured: true,
   },
   {
     name: "Application",
-    price: "750K – 2M",
+    price: "750 000",
     unit: "FCFA",
-    desc: "Votre application iPhone & Android.",
+    from: true,
+    tagline: "Votre application iPhone & Android",
     features: ["iOS & Android", "Comptes utilisateurs", "Notifications push", "Hébergement inclus", "Publication sur les stores", "6 mois d'accompagnement"],
     featured: false,
   },
 ];
 
-export const navLinks = [
-  { href: "#services", label: "Services" },
-  { href: "#projets", label: "Projets" },
-  { href: "#methode", label: "Méthode" },
-  { href: "#tarifs", label: "Tarifs" },
-  { href: "#contact", label: "Contact" },
+export const faq = [
+  {
+    q: "Combien coûte un site ?",
+    a: "Un site vitrine démarre à 135 000 FCFA et un site avec boutique en ligne à 180 000 FCFA. Pour une application mobile, comptez entre 750 000 et 2 000 000 FCFA selon les fonctionnalités. Le devis est gratuit et détaillé.",
+  },
+  {
+    q: "Est-ce que je peux payer en plusieurs fois ?",
+    a: "Oui, le paiement fractionné est possible. On en parle au moment du devis.",
+  },
+  {
+    q: "Combien de temps faut-il ?",
+    a: "Cela dépend de la taille du projet. Vous recevez un planning précis avec le devis, sous 24h.",
+  },
+  {
+    q: "Mes clients pourront-ils payer par mobile ?",
+    a: "Oui. Les boutiques en ligne acceptent le paiement mobile, la carte bancaire et le paiement à la livraison.",
+  },
+  {
+    q: "Je n'y connais rien, est-ce un problème ?",
+    a: "Non. On s'occupe de tout : design, textes, mise en ligne. On vous montre ensuite comment modifier vos produits et vos prix vous-même.",
+  },
+  {
+    q: "Vous travaillez seulement à Dakar ?",
+    a: "Non. On est basés à Dakar et on travaille aussi à distance : nos clients sont au Sénégal, en France et au Canada.",
+  },
 ];
+
+export const projectTypes = ["Site vitrine", "Boutique en ligne", "Application mobile", "Logo & identité", "Je ne sais pas encore"];
+export const budgets = ["Moins de 150 000", "150 000 – 300 000", "300 000 – 750 000", "Plus de 750 000"];

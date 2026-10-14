@@ -5,19 +5,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        abyss: "#03181A",
-        deep: "#0A3633",
-        sea: "#2C7A69",
-        foam: "#9FD8C5",
-        ice: "#E4F7F0",
+        ink: "#0B1533",
+        blue: { DEFAULT: "#0047FF", deep: "#0033B8", soft: "#E8EEFF" },
+        sun: "#FFD43B",
+        wa: { DEFAULT: "#1FAF55", dark: "#168A42" },
+        mist: "#F3F5FA",
+        line: "#DDE3F0",
+        muted: "#5A6584",
       },
       fontFamily: {
-        display: ["var(--font-display)", "sans-serif"],
-        sans: ["var(--font-sans)", "sans-serif"],
-        mono: ["var(--font-mono)", "monospace"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
-      transitionTimingFunction: {
-        expo: "cubic-bezier(0.16, 1, 0.3, 1)",
+      boxShadow: {
+        card: "0 1px 2px rgba(11,21,51,.06), 0 12px 32px -12px rgba(11,21,51,.18)",
+        pop: "0 20px 50px -20px rgba(0,71,255,.55)",
       },
     },
   },

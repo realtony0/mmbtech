@@ -1,33 +1,32 @@
-import { Header } from "@/components/sections/Header";
-import { Hero } from "@/components/sections/Hero";
-import { Manifesto } from "@/components/sections/Manifesto";
-import { Services } from "@/components/sections/Services";
-import { Work } from "@/components/sections/Work";
-import { ProjectIndex } from "@/components/sections/ProjectIndex";
-import { Method } from "@/components/sections/Method";
-import { Pricing } from "@/components/sections/Pricing";
-import { Contact } from "@/components/sections/Contact";
-import { Footer } from "@/components/sections/Footer";
-import { Preloader } from "@/components/ui/Preloader";
-import { DepthRuler } from "@/components/ui/DepthRuler";
+import { Header, TopBar } from "@/components/landing/Header";
+import { Hero } from "@/components/landing/Hero";
+import { ProofStrip } from "@/components/landing/ProofStrip";
+import { Benefits } from "@/components/landing/Benefits";
+import { Work } from "@/components/landing/Work";
+import { Offers } from "@/components/landing/Offers";
+import { Steps } from "@/components/landing/Steps";
+import { Faq } from "@/components/landing/Faq";
+import { LeadForm } from "@/components/landing/LeadForm";
+import { FinalCta, Footer, StickyCta } from "@/components/landing/Footer";
 
 export default function Home() {
   return (
     <>
-      <Preloader />
+      <TopBar />
       <Header />
-      <DepthRuler />
       <main>
         <Hero />
-        <Manifesto />
-        <Services />
+        <ProofStrip />
+        <Benefits />
         <Work />
-        <ProjectIndex />
-        <Method />
-        <Pricing />
-        <Contact />
+        <Offers />
+        <Steps />
+        <LeadForm />
+        <Faq />
+        <FinalCta />
       </main>
       <Footer />
+      <StickyCta />
     </>
   );
 }

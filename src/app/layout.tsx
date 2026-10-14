@@ -1,33 +1,26 @@
 import type { Metadata, Viewport } from "next";
-import { Chakra_Petch, JetBrains_Mono, Manrope } from "next/font/google";
+import { Bricolage_Grotesque, Manrope } from "next/font/google";
 import "./globals.css";
-import { SmoothScroll } from "@/components/ui/SmoothScroll";
-import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-import { Ocean } from "@/components/gl/Ocean";
-import { Cursor } from "@/components/ui/Cursor";
-import { MeltFilters } from "@/components/ui/MeltFilters";
 import Script from "next/script";
+import { MetaPixel } from "@/components/MetaPixel";
+import { CampaignCapture } from "@/components/WaLink";
 
-const display = Chakra_Petch({
+const display = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-display",
-  weight: ["500", "600", "700"],
-});
-
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  weight: ["400", "500"],
+  weight: ["700", "800"],
+  display: "swap",
 });
 
 const sans = Manrope({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#03181A",
+  themeColor: "#0047FF",
   width: "device-width",
   initialScale: 1,
 };
@@ -35,11 +28,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://mmb-tech.com"),
   title: {
-    default: "MMBTECH — Agence Digitale Dakar | Sites Web, Apps & E-commerce",
+    default: "Création de site web à Dakar dès 135 000 FCFA | MMBTECH",
     template: "%s | MMBTECH",
   },
   description:
-    "Agence digitale à Dakar, Sénégal. Création de sites web, applications mobiles et boutiques en ligne pour les entreprises ambitieuses. Devis gratuit sous 24h.",
+    "Site vitrine, boutique en ligne avec paiement mobile ou application : MMBTECH crée votre site à Dakar dès 135 000 FCFA. Devis gratuit sous 24h sur WhatsApp, paiement en plusieurs fois.",
   keywords: [
     "agence digitale Dakar",
     "création site web Sénégal",
@@ -59,8 +52,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://mmb-tech.com" },
   icons: { icon: "/favicon.svg", apple: "/favicon.svg" },
   openGraph: {
-    title: "MMBTECH — Agence Digitale Dakar",
-    description: "Création de sites web, applications mobiles et boutiques en ligne à Dakar. Devis gratuit sous 24h.",
+    title: "Votre site web à Dakar dès 135 000 FCFA — MMBTECH",
+    description: "Site vitrine, boutique en ligne, application. Devis gratuit sous 24h sur WhatsApp.",
     type: "website",
     url: "https://mmb-tech.com",
     siteName: "MMBTECH",
@@ -68,17 +61,18 @@ export const metadata: Metadata = {
       },
   twitter: {
     card: "summary_large_image",
-    title: "MMBTECH — Agence Digitale Dakar",
-    description: "Sites web · Apps mobiles · Boutiques en ligne — Dakar, Sénégal",
+    title: "Votre site web à Dakar dès 135 000 FCFA — MMBTECH",
+    description: "Site vitrine, boutique en ligne, application. Devis gratuit sous 24h sur WhatsApp.",
   },
   robots: {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 },
   },
-  verification: {
-    // google: "YOUR_GOOGLE_VERIFICATION_CODE",
-  },
+  // Meta Business Manager domain verification (required to configure ad events for mmb-tech.com)
+  ...(process.env.NEXT_PUBLIC_FB_DOMAIN_VERIFICATION && {
+    other: { "facebook-domain-verification": process.env.NEXT_PUBLIC_FB_DOMAIN_VERIFICATION },
+  }),
 };
 
 /* JSON-LD Structured Data */
@@ -171,7 +165,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${display.variable} ${mono.variable} ${sans.variable}`}>
+    <html lang="fr" className={`${display.variable} ${sans.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -179,14 +173,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="font-sans">
-        <MeltFilters />
-        <Ocean />
-        <SmoothScroll>
-          {children}
-          <WhatsAppButton />
-        </SmoothScroll>
-        <Cursor />
-
+        {children}
+        <CampaignCapture />
+        <MetaPixel />
         {/* Google Analytics — set NEXT_PUBLIC_GA_ID to enable */}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>

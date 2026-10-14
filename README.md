@@ -1,7 +1,7 @@
 # MMBTECH — Site du studio
 
-Site immersif du studio digital MMBTECH (Dakar).
-Stack : **Next.js 14** · **TypeScript** · **Tailwind CSS** · **Framer Motion** · **Lenis** · **WebGL (shader maison, sans librairie 3D)**
+Landing page de conversion de MMBTECH (agence web à Dakar), pensée pour les campagnes Meta (Facebook / Instagram).
+Stack : **Next.js 14** (export statique) · **TypeScript** · **Tailwind CSS**. Aucune librairie d'animation : la page charge vite sur mobile.
 
 ## Lancer en local
 
@@ -30,30 +30,40 @@ npm run build
 npx wrangler pages deploy out --project-name mmbtech
 ```
 
-Variable optionnelle : `NEXT_PUBLIC_GA_ID` pour Google Analytics. Les en-têtes HTTP sont dans `public/_headers`.
+Les en-têtes HTTP sont dans `public/_headers`.
 
-## Concept
+## Publicité Meta : suivi des conversions
 
-Une plongée : le haut de la page est la surface (0 m), on descend vers les profondeurs (-100 m) en scrollant.
-La jauge de profondeur à droite, le fond animé (eau / glace, réagit à la souris et au scroll) et les textes « fondus » portent l'identité.
-Dans le hero, dessiner un zéro à la souris déclenche une petite surprise.
+Variables d'environnement (à définir dans Cloudflare Pages → Settings → Environment variables, puis redéployer) :
+
+| Variable | Rôle |
+| --- | --- |
+| `NEXT_PUBLIC_META_PIXEL_ID` | ID du pixel Meta (Gestionnaire d'événements). Active `PageView`. |
+| `NEXT_PUBLIC_FB_DOMAIN_VERIFICATION` | Code de vérification du domaine (Business Manager → Domaines). |
+| `NEXT_PUBLIC_GA_ID` | Optionnel, Google Analytics. |
+
+Événements envoyés au pixel :
+- `Contact` à chaque clic sur un bouton WhatsApp (paramètre `content_name` = emplacement : `hero`, `sticky`, `offre-Business`…)
+- `Lead` à l'envoi du formulaire de devis (`content_category` = type de projet)
+
+→ Optimisez vos campagnes sur l'événement **Lead** (ou **Contact** au démarrage, quand il y a peu de volume).
+
+**Savoir quelle pub a converti** : ajoutez des paramètres UTM aux URL de vos pubs, par exemple
+`https://mmb-tech.com/?utm_source=facebook&utm_campaign=lancement-oct&utm_content=video-1`.
+La référence est ajoutée automatiquement à la fin du message WhatsApp : `(Réf : facebook / lancement-oct / video-1)`.
 
 ## Structure
 
 ```
 src/
-├── app/
-│   ├── layout.tsx            # Polices, SEO, JSON-LD, fond WebGL, curseur
-│   ├── page.tsx              # Assemblage des sections
-│   ├── opengraph-image.tsx   # Image de partage (PNG généré)
-│   ├── mentions-legales/     # Page mentions légales
-│   ├── robots.ts / sitemap.ts
-│   └── globals.css
+├── app/                      # layout (SEO, pixel), page, mentions légales, image de partage, robots, sitemap
 ├── components/
-│   ├── gl/Ocean.tsx          # Shader plein écran (caustiques, ripple souris, profondeur)
-│   ├── ui/                   # Preloader, Cursor (+ dessin), DepthRuler, MeltFilters, Reveal, SmoothScroll…
-│   └── sections/             # Header, Hero, Manifesto, Services, Work, ProjectIndex, Method, Pricing, Contact, Footer
-└── lib/data.ts               # ← Projets, services, tarifs, contacts : tout le contenu est ici
+│   ├── landing/              # TopBar/Header, Hero, ProofStrip, Benefits, Work, Offers, Steps, LeadForm, Faq, Footer (+ CTA final, barre mobile)
+│   ├── MetaPixel.tsx         # Pixel Meta
+│   └── WaLink.tsx            # Bouton WhatsApp (référence de campagne + événement Contact)
+└── lib/
+    ├── data.ts               # ← Tout le contenu : projets, offres, FAQ, étapes, contacts
+    └── track.ts              # Événements pixel + mémorisation des UTM
 ```
 
 ## Ajouter un projet
