@@ -2,6 +2,7 @@
 
 Landing page de conversion de MMBTECH (agence web à Dakar), pensée pour les campagnes Meta (Facebook / Instagram).
 Stack : **Next.js 14** (export statique) · **TypeScript** · **Tailwind CSS**. Aucune librairie d'animation : la page charge vite sur mobile.
+Polices : Schibsted Grotesk (texte) et Instrument Serif italique (accents). Couleur d'accent unique : bleu `#0047FF`.
 
 ## Lancer en local
 
@@ -58,7 +59,7 @@ La référence est ajoutée automatiquement à la fin du message WhatsApp : `(R�
 src/
 ├── app/                      # layout (SEO, pixel), page, mentions légales, image de partage, robots, sitemap
 ├── components/
-│   ├── landing/              # TopBar/Header, Hero, ProofStrip, Benefits, Work, Offers, Steps, LeadForm, Faq, Footer (+ CTA final, barre mobile)
+│   ├── site/                 # Header, Hero (mur de réalisations), Facts, Work, Services, Process, Pricing, Faq, Contact, Footer (+ barre mobile), ui (logo, cadres navigateur/téléphone)
 │   ├── MetaPixel.tsx         # Pixel Meta
 │   └── WaLink.tsx            # Bouton WhatsApp (référence de campagne + événement Contact)
 └── lib/
@@ -68,5 +69,5 @@ src/
 
 ## Ajouter un projet
 
-1. Mettre deux captures dans `public/projects/` : `<id>.webp` (1440×900) et `<id>-m.webp` (mobile, 390 px de large).
+1. Mettre les captures dans `public/projects/` : `<id>.webp` (1440×900), `<id>-m.webp` (mobile, 390 px de large) et `thumb/<id>.webp` (720×450, utilisée dans les grilles et le mur du haut de page).
 2. Ajouter l'entrée dans `projects` (`src/lib/data.ts`). `featured: true` l'affiche en grande carte avec capture, sinon il apparaît dans la liste « Et aussi ».

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { contact } from "@/lib/data";
+import { Logo } from "@/components/site/ui";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
@@ -17,12 +18,12 @@ const blocks: [string, React.ReactNode][] = [
 export default function Legal() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-16 sm:px-6 md:py-24">
-      <Link href="/" className="font-semibold text-blue hover:underline">← Retour à l&apos;accueil</Link>
-      <h1 className="mb-10 mt-6 font-display text-4xl font-extrabold tracking-tight md:text-6xl">Mentions légales</h1>
-      <div className="divide-y divide-line rounded-2xl border border-line">
+      <Link href="/" aria-label="Accueil MMBTECH"><Logo /></Link>
+      <h1 className="mb-10 mt-12 text-4xl font-semibold md:text-6xl">Mentions légales</h1>
+      <div className="divide-y divide-line rounded-2xl bg-paper">
         {blocks.map(([t, b]) => (
           <section key={t} className="p-6 md:p-8">
-            <h2 className="mb-2 font-display text-lg font-extrabold">{t}</h2>
+            <h2 className="mb-2 text-lg font-semibold tracking-[-0.02em]">{t}</h2>
             <p className="leading-relaxed text-muted">{b}</p>
           </section>
         ))}

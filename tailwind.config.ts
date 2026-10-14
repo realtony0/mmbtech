@@ -5,21 +5,33 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0B1533",
-        blue: { DEFAULT: "#0047FF", deep: "#0033B8", soft: "#E8EEFF" },
-        sun: "#FFD43B",
-        wa: { DEFAULT: "#1FAF55", dark: "#168A42" },
-        mist: "#F3F5FA",
-        line: "#DDE3F0",
-        muted: "#5A6584",
+        ink: { DEFAULT: "#0A0B0F", soft: "#16181F" },
+        blue: { DEFAULT: "#0047FF", deep: "#0036C4", tint: "#EEF2FF" },
+        paper: "#F5F6F8",
+        line: "#E5E7EC",
+        muted: "#5C6170",
+        faint: "#8C91A0",
+        wa: "#25D366",
       },
       fontFamily: {
-        display: ["var(--font-display)", "system-ui", "sans-serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        serif: ["var(--font-serif)", "Georgia", "serif"],
       },
+      maxWidth: { site: "76rem" },
       boxShadow: {
-        card: "0 1px 2px rgba(11,21,51,.06), 0 12px 32px -12px rgba(11,21,51,.18)",
-        pop: "0 20px 50px -20px rgba(0,71,255,.55)",
+        frame: "0 0 0 1px rgba(10,11,15,.06), 0 2px 4px rgba(10,11,15,.04), 0 24px 48px -16px rgba(10,11,15,.22)",
+        soft: "0 0 0 1px rgba(10,11,15,.05), 0 12px 32px -18px rgba(10,11,15,.25)",
+        cta: "0 1px 0 rgba(255,255,255,.25) inset, 0 10px 24px -10px rgba(0,71,255,.7)",
+      },
+      keyframes: {
+        up: { to: { transform: "translateY(-50%)" } },
+        down: { from: { transform: "translateY(-50%)" }, to: { transform: "translateY(0)" } },
+        left: { to: { transform: "translateX(-50%)" } },
+      },
+      animation: {
+        up: "up 60s linear infinite",
+        down: "down 60s linear infinite",
+        left: "left 50s linear infinite",
       },
     },
   },

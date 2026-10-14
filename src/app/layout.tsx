@@ -1,26 +1,27 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Manrope } from "next/font/google";
+import { Instrument_Serif, Schibsted_Grotesk } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import { MetaPixel } from "@/components/MetaPixel";
 import { CampaignCapture } from "@/components/WaLink";
 
-const display = Bricolage_Grotesque({
+const sans = Schibsted_Grotesk({
   subsets: ["latin"],
-  variable: "--font-display",
-  weight: ["700", "800"],
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const sans = Manrope({
+const serif = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-sans",
-  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-serif",
+  weight: "400",
+  style: ["italic"],
   display: "swap",
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0047FF",
+  themeColor: "#FFFFFF",
   width: "device-width",
   initialScale: 1,
 };
@@ -50,7 +51,7 @@ export const metadata: Metadata = {
   publisher: "MMBTECH",
   formatDetection: { telephone: true, email: true },
   alternates: { canonical: "https://mmb-tech.com" },
-  icons: { icon: "/favicon.svg", apple: "/favicon.svg" },
+  icons: { icon: "/favicon.svg", apple: "/apple-touch-icon.png" },
   openGraph: {
     title: "Votre site web à Dakar dès 135 000 FCFA — MMBTECH",
     description: "Site vitrine, boutique en ligne, application. Devis gratuit sous 24h sur WhatsApp.",
@@ -165,8 +166,10 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${display.variable} ${sans.variable}`}>
+    <html lang="fr" className={`${sans.variable} ${serif.variable}`}>
       <head>
+        {/* Lets CSS hide scroll-reveal content only when JS runs */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

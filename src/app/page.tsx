@@ -1,32 +1,32 @@
-import { Header, TopBar } from "@/components/landing/Header";
-import { Hero } from "@/components/landing/Hero";
-import { ProofStrip } from "@/components/landing/ProofStrip";
-import { Benefits } from "@/components/landing/Benefits";
-import { Work } from "@/components/landing/Work";
-import { Offers } from "@/components/landing/Offers";
-import { Steps } from "@/components/landing/Steps";
-import { Faq } from "@/components/landing/Faq";
-import { LeadForm } from "@/components/landing/LeadForm";
-import { FinalCta, Footer, StickyCta } from "@/components/landing/Footer";
+import { Header } from "@/components/site/Header";
+import { Hero } from "@/components/site/Hero";
+import { Facts } from "@/components/site/Facts";
+import { Work } from "@/components/site/Work";
+import { Services } from "@/components/site/Services";
+import { Process } from "@/components/site/Process";
+import { Pricing } from "@/components/site/Pricing";
+import { Faq } from "@/components/site/Faq";
+import { Contact } from "@/components/site/Contact";
+import { Footer, MobileBar } from "@/components/site/Footer";
+import { RevealObserver } from "@/components/site/Reveal";
 
 export default function Home() {
   return (
     <>
-      <TopBar />
       <Header />
       <main>
         <Hero />
-        <ProofStrip />
-        <Benefits />
+        <Facts />
         <Work />
-        <Offers />
-        <Steps />
-        <LeadForm />
+        <Services />
+        <Process />
+        <Pricing />
         <Faq />
-        <FinalCta />
+        <Contact />
       </main>
       <Footer />
-      <StickyCta />
+      <MobileBar />
+      <RevealObserver />
     </>
   );
 }
