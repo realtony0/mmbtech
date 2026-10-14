@@ -69,4 +69,4 @@ src/
 ## Ajouter un projet
 
 1. Mettre deux captures dans `public/projects/` : `<id>.webp` (1440×900) et `<id>-m.webp` (mobile, 390 px de large).
-2. Ajouter l'entrée dans `projects` (`src/lib/data.ts`). `featured: true` le place dans la galerie horizontale, sinon il apparaît dans l'index.
+2. Ajouter l'entrée dans `projects` (`src/lib/data.ts`). `featured: true` l'affiche en grande carte avec capture, sinon il apparaît dans la liste « Et aussi ».
